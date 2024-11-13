@@ -16,12 +16,18 @@ class TrabajadorController extends Controller
         return view("trabajadores.create");
     }
 
-    public function store(){
+    public function store(Request $request){
+
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'dni' => 'required|unique:trabajadores',
+        ]);
+
         $trabajadores = new Trabajador();
-        $trabajadores->nombre = request('id');
         $trabajadores->nombre = request('nombre');
-        $trabajadores->nombre = request('apellido');
-        $trabajadores->nombre = request('dni');
+        $trabajadores->apellido = request('apellido');
+        $trabajadores->dni = request('dni');
         $trabajadores->save();
 
         return redirect('/trabajador/index');

@@ -19,6 +19,12 @@ class TareaController extends Controller
         return view("tareas.create",compact("trabajadores"));
     }
 
+    public function update($id){
+        $tarea = Tarea::find($id);
+        $trabajadores = Trabajador::all();
+        return view("tareas.update",compact("tarea","trabajadores", "id"));
+    }
+
     public function store(){
         $tarea = new Tarea();
         $tarea->descripcion = request("descripcion");
@@ -29,4 +35,23 @@ class TareaController extends Controller
         return redirect('/tareas/index');
 
     }
+
+    public function edit($id){
+        $tarea = Tarea::find($id);
+        $tarea->descripcion = request('descripcion');
+        $tarea->fecha_limite = request("fecha_limite");
+        $tarea->trabajador_id = request("trabajador_id");
+        $tarea->update();
+
+        return redirect('/tareas/index');
+    
+    }
+
+    public function delete($id){
+        $tarea = Tarea::find($id);
+        $tarea -> delete();
+        return redirect('/tareas/index');
+    }
+
+
 }

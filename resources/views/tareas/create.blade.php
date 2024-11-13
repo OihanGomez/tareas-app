@@ -9,17 +9,16 @@
     <h1>Añadir Tarea</h1>
     <form action="/tareas/store" method="POST">
         @csrf
+
+
         <textarea type="text" name="descripcion" placeholder="Descripcion Tarea"></textarea>
             <input type="date" name="fecha_limite">
-            <input type="text" name="trabajador_id" placeholder="Id Trabajador">
-            <select name="" id="">
+            <select name="trabajador_id" >
                 @foreach ($trabajadores as $trabajador)
-                <option value="{{ $trabajador -> id }}">{{ $trabajador -> name }}</option>
-
+                <option value="{{ $trabajador -> id }}">{{ $trabajador -> nombre }}, {{ $trabajador -> apellido }}</option>
                 @endforeach
             </select>
             <input type="submit" value="Crear Tarea">
     </form>
-    
 </body>
 </html>
