@@ -19,3 +19,4 @@ Route::delete("/tareas/destroy/{id}",[TareaController::class,"delete"]);
 Route::get('/trabajador/index', [TrabajadorController::class,'index']);
 Route::get('/trabajador/create',[TrabajadorController::class, 'create']);
 Route::post('/trabajador/store',[TrabajadorController::class, 'store']);
+Route::get('/trabajador/show/{id}',[TrabajadorController::class, 'show']);

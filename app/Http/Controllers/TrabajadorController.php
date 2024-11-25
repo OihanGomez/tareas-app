@@ -32,4 +32,12 @@ class TrabajadorController extends Controller
 
         return redirect('/trabajador/index');
     }
+
+    public function show($id){
+        $trabajador = Trabajador::find($id);
+        $tareas = $trabajador->tarea;
+
+        return view('trabajadores.show',compact('tareas','trabajador'));
+
+    }
 }

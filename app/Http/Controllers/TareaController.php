@@ -38,12 +38,13 @@ class TareaController extends Controller
 
     public function edit($id){
         $tarea = Tarea::find($id);
-        $tarea->descripcion = request('descripcion');
+        $tarea->deTrabajadorscripcion = request('descripcion');
         $tarea->fecha_limite = request("fecha_limite");
         $tarea->trabajador_id = request("trabajador_id");
         $tarea->update();
 
         return redirect('/tareas/index');
+      
     
     }
 

@@ -12,7 +12,7 @@
     <br>
     @foreach ($trabajadores as $trabajador)
     <br>
-    {{ $trabajador->nombre }}, {{ $trabajador -> apellido }}
+   <a href="/trabajador/show/{{ $trabajador -> id }}">{{ $trabajador->nombre }}, {{ $trabajador -> apellido }}</a> 
     <br>
         
     @endforeach

@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarea extends Model
 {
-    //
+    public function trabajador()
+    {
+    return $this->belongsTo(Trabajador::class);   
+    }
 }

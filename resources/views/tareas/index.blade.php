@@ -12,7 +12,7 @@
     <br>
     @foreach ($tareas as $tarea)
     <br>
-    <li> <a href="/tareas/update/{{ $tarea -> id }}"> {{ $tarea->descripcion }}, {{ $tarea -> fecha_limite }}  </a>
+    <li> <a href="/tareas/update/{{  $tarea -> id }}"> {{ $tarea->descripcion }}, {{ $tarea -> fecha_limite }}  </a>
     <form action="/tareas/destroy/{{ $tarea -> id }}" method="POST">
     @method('DELETE')
 
@@ -20,6 +20,7 @@
     </form>
     </li>
     <br>
+    º   
         
     @endforeach
 </body>

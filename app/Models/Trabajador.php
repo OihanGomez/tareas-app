@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Trabajador extends Model
 {
     protected $table = 'trabajadores';
-
-    public function trabajador()
+    public function tarea()
     {
-    return $this->belongsTo(Trabajador::class);   
+    return $this->hasMany(related: Tarea::class);   
     }
+
 }
